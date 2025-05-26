@@ -17,6 +17,8 @@ CodeClipper is a VS Code extension that lets you quickly capture code snippets, 
 3. Fill in the description, title, priority, and scope
 4. Click "Send to Obsidian"—a new note is created in your vault with all details
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jNEgQWvL9Yo?si=DC4SWhAbr_DoJxjW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Prerequisites
 
 - [Obsidian](https://obsidian.md/) installed and a vault created
@@ -27,4 +29,4 @@ CodeClipper is a VS Code extension that lets you quickly capture code snippets, 
 - Set your Obsidian vault name and default folder in the extension settings
 - (Optional) Customize tags and other preferences
 
-## Screenshots & GIFs
+![CodeClipper Config](./codeclipper_config.png)

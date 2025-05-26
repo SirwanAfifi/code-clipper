@@ -4,7 +4,10 @@
   "description": "Clip code and create Obsidian notes",
   "version": "0.0.1",
   "publisher": "Sirwan Afifi",
-  "repository": "https://github.com/SirwanAfifi/code-clipper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SirwanAfifi/code-clipper"
+  },
   "license": "Proprietary",
   "icon": "media/codeclipper.png",
   "engines": {
