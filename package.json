@@ -3,7 +3,7 @@
   "displayName": "Obsidian Clipper",
   "description": "Clip code and create Obsidian notes",
   "version": "0.0.1",
-  "publisher": "Sirwan Afifi",
+  "publisher": "SirwanAfifi",
   "repository": {
     "type": "git",
     "url": "https://github.com/SirwanAfifi/code-clipper"
