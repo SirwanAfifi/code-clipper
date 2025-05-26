@@ -1,0 +1,157 @@
+{
+  "name": "obsidian-clipper",
+  "displayName": "Obsidian Clipper",
+  "description": "Clip code and create Obsidian notes",
+  "version": "0.0.1",
+  "publisher": "Sirwan Afifi",
+  "repository": "https://github.com/SirwanAfifi/code-clipper",
+  "license": "Proprietary",
+  "icon": "media/codeclipper.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Education",
+    "Other",
+    "AI"
+  ],
+  "activationEvents": [],
+  "keywords": [
+    "obsidian",
+    "clipper",
+    "code",
+    "tech debt",
+    "notes",
+    "todo",
+    "work item",
+    "checklist",
+    "vscode"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeclipper.clipForObsidian",
+        "title": "Clip Selected Code for Obsidian",
+        "category": "CodeClipper"
+      },
+      {
+        "command": "codeclipper.toggleResolved",
+        "title": "$(check) Mark as Resolved",
+        "category": "CodeClipper"
+      },
+      {
+        "command": "codeclipper.toggleUnresolved",
+        "title": "$(circle-slash) Mark as Unresolved",
+        "category": "CodeClipper"
+      },
+      {
+        "command": "codeclipper.searchWorkItem",
+        "title": "Search Work Item",
+        "category": "CodeClipper"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "CodeClipper Configuration",
+      "properties": {
+        "codeclipper.obsidianVault": {
+          "type": "string",
+          "default": "",
+          "description": "The name of your Obsidian vault. Required for note creation."
+        },
+        "codeclipper.defaultFolder": {
+          "type": "string",
+          "default": "Technical Debt",
+          "description": "Default folder in Obsidian for new tech debt notes."
+        },
+        "codeclipper.frontmatterTags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "techdebt",
+            "clipped"
+          ],
+          "description": "Default tags to include in the frontmatter."
+        },
+        "codeclipper.sortOrder": {
+          "type": "string",
+          "enum": [
+            "priority",
+            "date",
+            "title",
+            "scope"
+          ],
+          "default": "priority",
+          "description": "How to sort tech debt items within each group: by priority, date, title, or scope."
+        },
+        "codeclipper.storeWorkItems": {
+          "type": "boolean",
+          "default": true,
+          "description": "If true, store WorkItems in VS Code. If false, only clip for Obsidian."
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "command": "codeclipper.clipForObsidian",
+          "when": "editorHasSelection",
+          "group": "navigation@100"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "codeclipper.toggleResolved",
+          "when": "view == codeclipper.workItemChecklist && viewItem == unresolved"
+        },
+        {
+          "command": "codeclipper.toggleUnresolved",
+          "when": "view == codeclipper.workItemChecklist && viewItem == resolved"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "codeclipper.searchWorkItem",
+          "when": "view == codeclipper.workItemChecklist",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codeclipper",
+          "title": "Obsidian Clipper",
+          "icon": "media/codeclipper.svg"
+        }
+      ]
+    },
+    "views": {
+      "codeclipper": [
+        {
+          "id": "codeclipper.workItemChecklist",
+          "name": "Work Item Checklist",
+          "icon": "media/codeclipper.svg"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@stylistic/eslint-plugin": "^2.9.0",
+    "@types/node": "^20",
+    "@types/vscode": "^1.73.0",
+    "eslint": "^9.13.0",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.0"
+  }
+}
